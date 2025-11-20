@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- Demo Strategic Plan -->
+        <record id="demo_strategic_plan_2025_2029" model="planning.strategic_plan">
+            <field name="name">Five Year Strategic Plan</field>
+            <field name="start_year">2025</field>
+            <field name="end_year">2029</field>
+            <field name="description">Strategic plan for organizational development 2025-2029</field>
+            <field name="state">active</field>
+        </record>
+
+        <!-- Demo Themes -->
+        <record id="demo_theme_education" model="planning.theme">
+            <field name="name">Education Development</field>
+            <field name="code">EDU</field>
+            <field name="sequence">10</field>
+            <field name="strategic_plan_id" ref="demo_strategic_plan_2025_2029"/>
+            <field name="description">Improving education quality and access</field>
+        </record>
+
+        <record id="demo_theme_health" model="planning.theme">
+            <field name="name">Health Services</field>
+            <field name="code">HLT</field>
+            <field name="sequence">20</field>
+            <field name="strategic_plan_id" ref="demo_strategic_plan_2025_2029"/>
+            <field name="description">Enhancing healthcare delivery</field>
+        </record>
+
+        <!-- Demo Strategies -->
+        <record id="demo_strategy_edu_infrastructure" model="planning.strategy">
+            <field name="name">Infrastructure Development</field>
+            <field name="code">EDU-INF</field>
+            <field name="sequence">10</field>
+            <field name="theme_id" ref="demo_theme_education"/>
+            <field name="description">Building and upgrading educational facilities</field>
+            <field name="target_year_1">100</field>
+            <field name="target_year_2">150</field>
+            <field name="target_year_3">200</field>
+            <field name="target_year_4">250</field>
+            <field name="target_year_5">300</field>
+        </record>
+
+        <record id="demo_strategy_edu_quality" model="planning.strategy">
+            <field name="name">Quality Improvement</field>
+            <field name="code">EDU-QLT</field>
+            <field name="sequence">20</field>
+            <field name="theme_id" ref="demo_theme_education"/>
+            <field name="description">Improving teaching and learning outcomes</field>
+            <field name="target_year_1">80</field>
+            <field name="target_year_2">85</field>
+            <field name="target_year_3">90</field>
+            <field name="target_year_4">92</field>
+            <field name="target_year_5">95</field>
+        </record>
+
+        <record id="demo_strategy_health_access" model="planning.strategy">
+            <field name="name">Healthcare Access</field>
+            <field name="code">HLT-ACC</field>
+            <field name="sequence">10</field>
+            <field name="theme_id" ref="demo_theme_health"/>
+            <field name="description">Expanding access to healthcare services</field>
+            <field name="target_year_1">500</field>
+            <field name="target_year_2">600</field>
+            <field name="target_year_3">700</field>
+            <field name="target_year_4">800</field>
+            <field name="target_year_5">1000</field>
+        </record>
+
+        <!-- Demo Annual Plan -->
+        <record id="demo_annual_plan_2025" model="planning.annual_plan">
+            <field name="name">Annual Plan 2025</field>
+            <field name="year">2025</field>
+            <field name="description">Annual operational plan for 2025</field>
+            <field name="state">active</field>
+        </record>
+
+        <!-- Demo Main Categories -->
+        <record id="demo_category_construction" model="planning.main_category">
+            <field name="name">Construction Projects</field>
+            <field name="code">CONST</field>
+            <field name="sequence">10</field>
+            <field name="annual_plan_id" ref="demo_annual_plan_2025"/>
+            <field name="description">Building and infrastructure construction</field>
+        </record>
+
+        <record id="demo_category_training" model="planning.main_category">
+            <field name="name">Training Programs</field>
+            <field name="code">TRAIN</field>
+            <field name="sequence">20</field>
+            <field name="annual_plan_id" ref="demo_annual_plan_2025"/>
+            <field name="description">Staff development and training</field>
+        </record>
+
+        <!-- Demo Sub-Activities -->
+        <record id="demo_subactivity_school_building" model="planning.sub_activity">
+            <field name="name">School Building Construction</field>
+            <field name="code">CONST-001</field>
+            <field name="sequence">10</field>
+            <field name="main_category_id" ref="demo_category_construction"/>
+            <field name="description">Construction of new school buildings</field>
+            <!-- Monthly Plan Data -->
+            <field name="jan_plan">5</field>
+            <field name="feb_plan">5</field>
+            <field name="mar_plan">8</field>
+            <field name="apr_plan">10</field>
+            <field name="may_plan">12</field>
+            <field name="jun_plan">15</field>
+            <field name="jul_plan">10</field>
+            <field name="aug_plan">8</field>
+            <field name="sep_plan">10</field>
+            <field name="oct_plan">12</field>
+            <field name="nov_plan">10</field>
+            <field name="dec_plan">5</field>
+            <!-- Monthly Actual Data -->
+            <field name="jan_actual">4</field>
+            <field name="feb_actual">6</field>
+            <field name="mar_actual">7</field>
+            <field name="apr_actual">9</field>
+            <field name="may_actual">0</field>
+            <field name="jun_actual">0</field>
+            <field name="jul_actual">0</field>
+            <field name="aug_actual">0</field>
+            <field name="sep_actual">0</field>
+            <field name="oct_actual">0</field>
+            <field name="nov_actual">0</field>
+            <field name="dec_actual">0</field>
+        </record>
+
+        <record id="demo_subactivity_clinic_building" model="planning.sub_activity">
+            <field name="name">Health Clinic Construction</field>
+            <field name="code">CONST-002</field>
+            <field name="sequence">20</field>
+            <field name="main_category_id" ref="demo_category_construction"/>
+            <field name="description">Construction of health clinics</field>
+            <!-- Monthly Plan Data -->
+            <field name="jan_plan">3</field>
+            <field name="feb_plan">3</field>
+            <field name="mar_plan">5</field>
+            <field name="apr_plan">7</field>
+            <field name="may_plan">8</field>
+            <field name="jun_plan">10</field>
+            <field name="jul_plan">8</field>
+            <field name="aug_plan">6</field>
+            <field name="sep_plan">7</field>
+            <field name="oct_plan">8</field>
+            <field name="nov_plan">6</field>
+            <field name="dec_plan">3</field>
+            <!-- Monthly Actual Data -->
+            <field name="jan_actual">3</field>
+            <field name="feb_actual">3</field>
+            <field name="mar_actual">5</field>
+            <field name="apr_actual">8</field>
+            <field name="may_actual">0</field>
+            <field name="jun_actual">0</field>
+            <field name="jul_actual">0</field>
+            <field name="aug_actual">0</field>
+            <field name="sep_actual">0</field>
+            <field name="oct_actual">0</field>
+            <field name="nov_actual">0</field>
+            <field name="dec_actual">0</field>
+        </record>
+
+        <record id="demo_subactivity_teacher_training" model="planning.sub_activity">
+            <field name="name">Teacher Training Program</field>
+            <field name="code">TRAIN-001</field>
+            <field name="sequence">10</field>
+            <field name="main_category_id" ref="demo_category_training"/>
+            <field name="description">Professional development for teachers</field>
+            <!-- Monthly Plan Data -->
+            <field name="jan_plan">20</field>
+            <field name="feb_plan">25</field>
+            <field name="mar_plan">30</field>
+            <field name="apr_plan">35</field>
+            <field name="may_plan">30</field>
+            <field name="jun_plan">25</field>
+            <field name="jul_plan">15</field>
+            <field name="aug_plan">10</field>
+            <field name="sep_plan">30</field>
+            <field name="oct_plan">35</field>
+            <field name="nov_plan">30</field>
+            <field name="dec_plan">15</field>
+            <!-- Monthly Actual Data -->
+            <field name="jan_actual">18</field>
+            <field name="feb_actual">24</field>
+            <field name="mar_actual">28</field>
+            <field name="apr_actual">33</field>
+            <field name="may_actual">0</field>
+            <field name="jun_actual">0</field>
+            <field name="jul_actual">0</field>
+            <field name="aug_actual">0</field>
+            <field name="sep_actual">0</field>
+            <field name="oct_actual">0</field>
+            <field name="nov_actual">0</field>
+            <field name="dec_actual">0</field>
+        </record>
+
+        <!-- Demo Weekly Reports -->
+        <record id="demo_weekly_report_w1" model="planning.weekly_report">
+            <field name="year">2025</field>
+            <field name="week_number">1</field>
+            <field name="week_start_date">2025-01-01</field>
+            <field name="week_end_date">2025-01-07</field>
+            <field name="annual_plan_id" ref="demo_annual_plan_2025"/>
+            <field name="main_category_id" ref="demo_category_construction"/>
+            <field name="sub_activity_id" ref="demo_subactivity_school_building"/>
+            <field name="hojii_torbee">1.5</field>
+            <field name="hanga_torbee">1.3</field>
+            <field name="cumulative_plan">1.5</field>
+            <field name="cumulative_actual">1.3</field>
+            <field name="notes">Good progress in the first week</field>
+        </record>
+
+        <record id="demo_weekly_report_w2" model="planning.weekly_report">
+            <field name="year">2025</field>
+            <field name="week_number">2</field>
+            <field name="week_start_date">2025-01-08</field>
+            <field name="week_end_date">2025-01-14</field>
+            <field name="annual_plan_id" ref="demo_annual_plan_2025"/>
+            <field name="main_category_id" ref="demo_category_construction"/>
+            <field name="sub_activity_id" ref="demo_subactivity_school_building"/>
+            <field name="hojii_torbee">1.2</field>
+            <field name="hanga_torbee">1.4</field>
+            <field name="cumulative_plan">2.7</field>
+            <field name="cumulative_actual">2.7</field>
+            <field name="notes">Excellent performance, ahead of schedule</field>
+        </record>
+
+        <record id="demo_weekly_report_w3" model="planning.weekly_report">
+            <field name="year">2025</field>
+            <field name="week_number">3</field>
+            <field name="week_start_date">2025-01-15</field>
+            <field name="week_end_date">2025-01-21</field>
+            <field name="annual_plan_id" ref="demo_annual_plan_2025"/>
+            <field name="main_category_id" ref="demo_category_training"/>
+            <field name="sub_activity_id" ref="demo_subactivity_teacher_training"/>
+            <field name="hojii_torbee">5</field>
+            <field name="hanga_torbee">4.5</field>
+            <field name="cumulative_plan">5</field>
+            <field name="cumulative_actual">4.5</field>
+            <field name="notes">Training session completed successfully</field>
+        </record>
+
+    </data>
+</odoo>
