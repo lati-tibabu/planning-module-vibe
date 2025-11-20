@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main Menu -->
+    <menuitem id="menu_planning_root" 
+              name="Planning"
+              sequence="10"/>
+
+    <!-- Strategic Planning Menu -->
+    <menuitem id="menu_planning_strategic" 
+              name="Strategic Planning"
+              parent="menu_planning_root"
+              sequence="10"/>
+
+    <menuitem id="menu_strategic_plan" 
+              name="Strategic Plans"
+              parent="menu_planning_strategic"
+              action="action_strategic_plan"
+              sequence="10"/>
+
+    <!-- Annual Planning Menu -->
+    <menuitem id="menu_planning_annual" 
+              name="Annual Planning"
+              parent="menu_planning_root"
+              sequence="20"/>
+
+    <menuitem id="menu_annual_plan" 
+              name="Annual Plans"
+              parent="menu_planning_annual"
+              action="action_annual_plan"
+              sequence="10"/>
+
+    <menuitem id="menu_main_category" 
+              name="Main Categories"
+              parent="menu_planning_annual"
+              action="action_main_category"
+              sequence="20"/>
+
+    <menuitem id="menu_sub_activity" 
+              name="Sub-Activities"
+              parent="menu_planning_annual"
+              action="action_sub_activity"
+              sequence="30"/>
+
+    <!-- Weekly Reporting Menu -->
+    <menuitem id="menu_planning_weekly" 
+              name="Gabaasa Torbee (Weekly Reports)"
+              parent="menu_planning_root"
+              sequence="30"/>
+
+    <menuitem id="menu_weekly_report" 
+              name="Weekly Reports"
+              parent="menu_planning_weekly"
+              action="action_weekly_report"
+              sequence="10"/>
+
+</odoo>

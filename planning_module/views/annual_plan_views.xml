@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Annual Plan Tree View -->
+    <record id="view_annual_plan_tree" model="ir.ui.view">
+        <field name="name">planning.annual_plan.tree</field>
+        <field name="model">planning.annual_plan</field>
+        <field name="arch" type="xml">
+            <tree string="Annual Plans">
+                <field name="name"/>
+                <field name="year"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Annual Plan Form View -->
+    <record id="view_annual_plan_form" model="ir.ui.view">
+        <field name="name">planning.annual_plan.form</field>
+        <field name="model">planning.annual_plan</field>
+        <field name="arch" type="xml">
+            <form string="Annual Plan">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,active,closed"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="year"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Main Categories">
+                            <field name="main_category_ids">
+                                <tree>
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="code"/>
+                                    <field name="name"/>
+                                    <field name="q1_plan"/>
+                                    <field name="q2_plan"/>
+                                    <field name="q3_plan"/>
+                                    <field name="q4_plan"/>
+                                    <field name="total_plan"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Main Category Form View -->
+    <record id="view_main_category_form" model="ir.ui.view">
+        <field name="name">planning.main_category.form</field>
+        <field name="model">planning.main_category</field>
+        <field name="arch" type="xml">
+            <form string="Main Category">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="sequence"/>
+                        </group>
+                        <group>
+                            <field name="annual_plan_id"/>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Sub-Activities">
+                            <field name="sub_activity_ids">
+                                <tree editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="code"/>
+                                    <field name="name"/>
+                                    <field name="total_plan"/>
+                                    <field name="total_actual"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Monthly Summary">
+                            <group>
+                                <group string="Quarter 1">
+                                    <field name="jan_plan" readonly="1"/>
+                                    <field name="feb_plan" readonly="1"/>
+                                    <field name="mar_plan" readonly="1"/>
+                                    <field name="q1_plan" readonly="1"/>
+                                </group>
+                                <group string="Quarter 2">
+                                    <field name="apr_plan" readonly="1"/>
+                                    <field name="may_plan" readonly="1"/>
+                                    <field name="jun_plan" readonly="1"/>
+                                    <field name="q2_plan" readonly="1"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group string="Quarter 3">
+                                    <field name="jul_plan" readonly="1"/>
+                                    <field name="aug_plan" readonly="1"/>
+                                    <field name="sep_plan" readonly="1"/>
+                                    <field name="q3_plan" readonly="1"/>
+                                </group>
+                                <group string="Quarter 4">
+                                    <field name="oct_plan" readonly="1"/>
+                                    <field name="nov_plan" readonly="1"/>
+                                    <field name="dec_plan" readonly="1"/>
+                                    <field name="q4_plan" readonly="1"/>
+                                </group>
+                            </group>
+                            <group>
+                                <field name="total_plan" readonly="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Sub-Activity Form View -->
+    <record id="view_sub_activity_form" model="ir.ui.view">
+        <field name="name">planning.sub_activity.form</field>
+        <field name="model">planning.sub_activity</field>
+        <field name="arch" type="xml">
+            <form string="Sub-Activity">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="sequence"/>
+                        </group>
+                        <group>
+                            <field name="main_category_id"/>
+                            <field name="annual_plan_id" readonly="1"/>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Monthly Plan">
+                            <group>
+                                <group string="Quarter 1">
+                                    <field name="jan_plan"/>
+                                    <field name="feb_plan"/>
+                                    <field name="mar_plan"/>
+                                    <field name="q1_plan" readonly="1"/>
+                                </group>
+                                <group string="Quarter 2">
+                                    <field name="apr_plan"/>
+                                    <field name="may_plan"/>
+                                    <field name="jun_plan"/>
+                                    <field name="q2_plan" readonly="1"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group string="Quarter 3">
+                                    <field name="jul_plan"/>
+                                    <field name="aug_plan"/>
+                                    <field name="sep_plan"/>
+                                    <field name="q3_plan" readonly="1"/>
+                                </group>
+                                <group string="Quarter 4">
+                                    <field name="oct_plan"/>
+                                    <field name="nov_plan"/>
+                                    <field name="dec_plan"/>
+                                    <field name="q4_plan" readonly="1"/>
+                                </group>
+                            </group>
+                            <group>
+                                <field name="total_plan" readonly="1"/>
+                            </group>
+                        </page>
+                        <page string="Monthly Actual">
+                            <group>
+                                <group string="Quarter 1">
+                                    <field name="jan_actual"/>
+                                    <field name="feb_actual"/>
+                                    <field name="mar_actual"/>
+                                    <field name="q1_actual" readonly="1"/>
+                                </group>
+                                <group string="Quarter 2">
+                                    <field name="apr_actual"/>
+                                    <field name="may_actual"/>
+                                    <field name="jun_actual"/>
+                                    <field name="q2_actual" readonly="1"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group string="Quarter 3">
+                                    <field name="jul_actual"/>
+                                    <field name="aug_actual"/>
+                                    <field name="sep_actual"/>
+                                    <field name="q3_actual" readonly="1"/>
+                                </group>
+                                <group string="Quarter 4">
+                                    <field name="oct_actual"/>
+                                    <field name="nov_actual"/>
+                                    <field name="dec_actual"/>
+                                    <field name="q4_actual" readonly="1"/>
+                                </group>
+                            </group>
+                            <group>
+                                <field name="total_actual" readonly="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Annual Plan Action -->
+    <record id="action_annual_plan" model="ir.actions.act_window">
+        <field name="name">Annual Plans</field>
+        <field name="res_model">planning.annual_plan</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Main Category Action -->
+    <record id="action_main_category" model="ir.actions.act_window">
+        <field name="name">Main Categories</field>
+        <field name="res_model">planning.main_category</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Sub-Activity Action -->
+    <record id="action_sub_activity" model="ir.actions.act_window">
+        <field name="name">Sub-Activities</field>
+        <field name="res_model">planning.sub_activity</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

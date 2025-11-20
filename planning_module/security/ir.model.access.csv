@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_planning_strategic_plan,access.planning.strategic_plan,model_planning_strategic_plan,base.group_user,1,1,1,1
+access_planning_theme,access.planning.theme,model_planning_theme,base.group_user,1,1,1,1
+access_planning_strategy,access.planning.strategy,model_planning_strategy,base.group_user,1,1,1,1
+access_planning_annual_plan,access.planning.annual_plan,model_planning_annual_plan,base.group_user,1,1,1,1
+access_planning_main_category,access.planning.main_category,model_planning_main_category,base.group_user,1,1,1,1
+access_planning_sub_activity,access.planning.sub_activity,model_planning_sub_activity,base.group_user,1,1,1,1
+access_planning_weekly_report,access.planning.weekly_report,model_planning_weekly_report,base.group_user,1,1,1,1
